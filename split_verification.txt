@@ -1,0 +1,43 @@
+=== 1. Videos per split and label; video_id overlap across splits ===
+ffpp: total=6000 train/val/test=4320/840/840 duplicate video_ids=0 video_id overlap across splits=0
+    train: real=720 fake=3600
+    val: real=140 fake=700
+    test: real=140 fake=700
+celebdf: total=6529 train/val/test=5678/333/518 duplicate video_ids=0 video_id overlap across splits=0
+    train: real=634 fake=5044
+    val: real=78 fake=255
+    test: real=178 fake=340
+dfdc: total=6603 train/val/test=3447/1455/1701 duplicate video_ids=0 video_id overlap across splits=0
+    train: real=338 fake=3109
+    val: real=219 fake=1236
+    test: real=183 fake=1518
+
+=== 2. FF++ (official split lists): source-video numbers shared across splits ===
+train/val: shared source numbers = 0
+train/test: shared source numbers = 0
+val/test: shared source numbers = 0
+manipulated videos whose two source videos are not both in the video's own split: 0 of 5000
+
+=== 3. CelebDF-v2: identity tags (idN in file names) shared across splits ===
+train/val: shared identities = 28 (distinct identities: train=59, val=28)
+train/test: shared identities = 56 (distinct identities: train=59, test=56)
+val/test: shared identities = 25 (distinct identities: val=28, test=56)
+val: identity-tagged videos=307; sharing >=1 identity with a train video=307 (100.0%)
+test: identity-tagged videos=448; sharing >=1 identity with a train video=448 (100.0%)
+videos without an identity tag (YouTube-real): {'train': 204, 'val': 26, 'test': 70}
+
+=== 4. DFDC: partition by archive part ===
+('dfdc_train_part_1', 'train', 'fake') 1591
+('dfdc_train_part_1', 'train', 'real') 108
+('dfdc_train_part_2', 'train', 'fake') 1518
+('dfdc_train_part_2', 'train', 'real') 230
+('dfdc_train_part_3', 'val', 'fake') 1236
+('dfdc_train_part_3', 'val', 'real') 219
+('dfdc_train_part_4', 'test', 'fake') 1518
+('dfdc_train_part_4', 'test', 'real') 183
+(actor/subject disjointness is NOT verified; it requires the original DFDC metadata)
+
+=== 5. Domain-adaptation subset (video level, sorted ids, random.Random(1234).shuffle) ===
+{('celebdf', 'fake'): 1496, ('celebdf', 'real'): 207, ('dfdc', 'fake'): 633, ('dfdc', 'real'): 56}
+CelebDF DA subset: 1703 videos, 59 identities; test identities also in DA subset: 56 of 56; identity-tagged test videos sharing >=1 identity with a DA video: 448 of 448
+DA videos that are also test videos: 0
