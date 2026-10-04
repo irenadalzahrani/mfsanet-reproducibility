@@ -1,6 +1,6 @@
 # MFSA-Net: Reproducibility Package
 
-Code and split manifests for "Toward an Efficient Framework for AI-Generated Deepfake Detection."
+Code and split manifests for the associated paper.
 
 ## Requirements
 - Python 3.10
@@ -39,15 +39,24 @@ raw video data itself.
                    seed=42, device="cuda", use_domain_adapt=True, use_freq_loss=True)
 ```
 4. Evaluate with `eval_common.run_full_evaluation(...)` for test-set metrics
-   (accuracy, AUC, F1, precision, recall at both τ=0.5 and the calibrated τ=0.35).
+   (accuracy, AUC, and real-class F1, precision, recall at both τ=0.5 and the calibrated τ=0.35).
 5. Run the robustness sweep with `robustness_common.run_robustness_sweep(...)`.
 
 All reported results average over three random seeds (42, 43, 44).
 
 ## License
-Code released for research reproducibility purposes accompanying the associated thesis.
+Code released for research reproducibility purposes accompanying the associated paper.
 
 ## Additional scripts
 - `run_da_baselines.py` — trains the domain-adapted SpecXNet+DA and DeFaX+DA baselines (same mixed-domain corpus, recipe, and seeds as MFSA-Net-DA)
 - `bootstrap_analysis.py` — paired bootstrap (10,000 video-level resamples, seed-averaged scores) of MFSA-Net-DA vs. SpecXNet+DA / DeFaX+DA
 - `predictions/` — seed-averaged per-video test scores used by the bootstrap analysis
+
+## Conventions
+- Class labels: 1 = real, 0 = fake. The model's softmax output at index 1 is the real-class probability.
+- A video is labelled real if its mean real-class probability is >= tau (tau = 0.5 fixed, tau = 0.35 calibrated).
+- Precision, recall and F1 use the real class as the positive class; AUC is unaffected by this choice.
+- Video-level scores are the mean of frame-level probabilities over the 20 frames sampled per video.
+
+## Results
+- `results/` — raw per-seed and mean/std test metrics (frame and video level, tau = 0.5 and 0.35) for every evaluated model.
