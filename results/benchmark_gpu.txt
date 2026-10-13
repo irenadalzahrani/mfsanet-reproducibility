@@ -1,0 +1,23 @@
+ENVIRONMENT: {"torch": "2.8.0+cu128", "python": "3.12.3", "cpu": "x86_64", "device": "cuda", "gpu": "NVIDIA GeForce RTX 4090", "cuda": "12.8", "threads": null, "input": "288x288", "precision": "fp32"}
+{"model": "SpecXNet", "params_M": 35.96, "fwd_GFLOPs(2xMAC)": 16.12, "fwd_GMACs": 8.06, "latency_b1_ms_median": 2.16, "latency_b1_ms_p95": 2.19, "inference_peak_mem_b1_MB": 184, "throughput_b32_img_per_s": 1225.7, "inference_peak_mem_b32_MB": 1267, "train_step_ms_b16": 46.4, "train_peak_mem_b16_GB": 4.02, "est_run_hours_zero-shot": 2.4, "est_run_hours_domain-adapted": 3.8}
+/usr/local/lib/python3.12/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name xception to current legacy_xception.
+  model = create_fn(
+{"model": "Xception", "params_M": 21.33, "fwd_GFLOPs(2xMAC)": 15.08, "fwd_GMACs": 7.54, "latency_b1_ms_median": 1.54, "latency_b1_ms_p95": 1.58, "inference_peak_mem_b1_MB": 735, "throughput_b32_img_per_s": 1336.2, "inference_peak_mem_b32_MB": 1789, "train_step_ms_b16": 41.8, "train_peak_mem_b16_GB": 3.66, "est_run_hours_zero-shot": 2.2, "est_run_hours_domain-adapted": 3.4}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/usr/local/lib/python3.12/dist-packages/timm/layers/interpolate.py:47: UserWarning: torch.searchsorted(): input value tensor is non-contiguous, this will lower the performance due to extra data copy when converting non-contiguous tensor to contiguous, please use contiguous input value tensor if possible. This message will only appear once per program. (Triggered internally at /pytorch/aten/src/ATen/native/BucketizationUtils.h:32.)
+  idx_right = torch.bucketize(x, p)
+/usr/local/lib/python3.12/dist-packages/timm/layers/interpolate.py:65: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:306.)
+  numerator += self.values[as_s] * \
+Unexpected keys (bn2.num_batches_tracked, bn2.bias, bn2.running_mean, bn2.running_var, bn2.weight, classifier.bias, classifier.weight, conv_head.weight) found while loading pretrained weights. This may be expected if model is being adapted.
+{"model": "DeFaX", "params_M": 97.95, "fwd_GFLOPs(2xMAC)": 66.98, "fwd_GMACs": 33.49, "latency_b1_ms_median": 10.21, "latency_b1_ms_p95": 10.28, "inference_peak_mem_b1_MB": 832, "throughput_b32_img_per_s": 238.5, "inference_peak_mem_b32_MB": 2245, "train_step_ms_b16": 204.5, "train_peak_mem_b16_GB": 13.26, "est_run_hours_zero-shot": 10.7, "est_run_hours_domain-adapted": 16.7}
+Unexpected keys (bn2.num_batches_tracked, bn2.bias, bn2.running_mean, bn2.running_var, bn2.weight, classifier.bias, classifier.weight, conv_head.weight) found while loading pretrained weights. This may be expected if model is being adapted.
+{"model": "MFSA-Net", "params_M": 28.17, "fwd_GFLOPs(2xMAC)": 10.99, "fwd_GMACs": 5.49, "latency_b1_ms_median": 5.78, "latency_b1_ms_p95": 5.83, "inference_peak_mem_b1_MB": 1727, "throughput_b32_img_per_s": 1508.8, "inference_peak_mem_b32_MB": 2106, "train_step_ms_b16": 44.3, "train_peak_mem_b16_GB": 4.65, "est_run_hours_zero-shot": 2.3, "est_run_hours_domain-adapted": 3.6}
+
+SUMMARY TABLE
+model	est_run_hours_domain-adapted	est_run_hours_zero-shot	fwd_GFLOPs(2xMAC)	fwd_GMACs	inference_peak_mem_b1_MB	inference_peak_mem_b32_MB	latency_b1_ms_median	latency_b1_ms_p95	params_M	throughput_b32_img_per_s	train_peak_mem_b16_GB	train_step_ms_b16
+SpecXNet	3.8	2.4	16.12	8.06	184	1267	2.16	2.19	35.96	1225.7	4.02	46.4
+Xception	3.4	2.2	15.08	7.54	735	1789	1.54	1.58	21.33	1336.2	3.66	41.8
+DeFaX	16.7	10.7	66.98	33.49	832	2245	10.21	10.28	97.95	238.5	13.26	204.5
+MFSA-Net	3.6	2.3	10.99	5.49	1727	2106	5.78	5.83	28.17	1508.8	4.65	44.3
+
+Note: the training-time estimate multiplies the measured step time by the number of steps per epoch and by 35 epochs; it excludes data loading, validation and checkpointing, so real runs take longer.

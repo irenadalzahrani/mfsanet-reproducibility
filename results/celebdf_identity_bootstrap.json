@@ -1,0 +1,70 @@
+{
+  "protocol": "paired video bootstrap on seed-averaged probabilities",
+  "seed": 42,
+  "results": [
+    {
+      "dataset": "celebdf_identity",
+      "model_a": "mfsanet_A4",
+      "model_b": "specxnet",
+      "n_videos": 328,
+      "n_seeds": 3,
+      "auc_a_seed_mean_scores": 0.8668954472660718,
+      "auc_b_seed_mean_scores": 0.817433081674674,
+      "point_delta_auc": 0.04946236559139783,
+      "bootstrap_mean_delta_auc": 0.04944021128627297,
+      "ci95_low": 0.014845726995764285,
+      "ci95_high": 0.0861738133188188,
+      "bootstrap_fraction_delta_positive": 0.99787,
+      "bootstrap_replicates_valid": 100000,
+      "bootstrap_replicates_requested": 100000
+    },
+    {
+      "dataset": "celebdf_identity",
+      "model_a": "mfsanet_A4",
+      "model_b": "defax",
+      "n_videos": 328,
+      "n_seeds": 3,
+      "auc_a_seed_mean_scores": 0.8668954472660718,
+      "auc_b_seed_mean_scores": 0.8956760466712422,
+      "point_delta_auc": -0.028780599405170415,
+      "bootstrap_mean_delta_auc": -0.028740662011030184,
+      "ci95_low": -0.058472838269661875,
+      "ci95_high": 0.000598028960122351,
+      "bootstrap_fraction_delta_positive": 0.02731,
+      "bootstrap_replicates_valid": 100000,
+      "bootstrap_replicates_requested": 100000
+    },
+    {
+      "dataset": "celebdf_identity",
+      "model_a": "mfsanet_identity_da",
+      "model_b": "specxnet_identity_da",
+      "n_videos": 328,
+      "n_seeds": 3,
+      "auc_a_seed_mean_scores": 0.9938229238160604,
+      "auc_b_seed_mean_scores": 0.9912148249828414,
+      "point_delta_auc": 0.002608098833218997,
+      "bootstrap_mean_delta_auc": 0.0026062265601867513,
+      "ci95_low": -0.004318967084924519,
+      "ci95_high": 0.009035087719298285,
+      "bootstrap_fraction_delta_positive": 0.79392,
+      "bootstrap_replicates_valid": 100000,
+      "bootstrap_replicates_requested": 100000
+    },
+    {
+      "dataset": "celebdf_identity",
+      "model_a": "mfsanet_identity_da",
+      "model_b": "defax_identity_da",
+      "n_videos": 328,
+      "n_seeds": 3,
+      "auc_a_seed_mean_scores": 0.9938229238160604,
+      "auc_b_seed_mean_scores": 0.9982612674445207,
+      "point_delta_auc": -0.004438343628460295,
+      "bootstrap_mean_delta_auc": -0.004427573994354803,
+      "ci95_low": -0.011645657957866207,
+      "ci95_high": 0.00013014055179594308,
+      "bootstrap_fraction_delta_positive": 0.03302,
+      "bootstrap_replicates_valid": 100000,
+      "bootstrap_replicates_requested": 100000
+    }
+  ]
+}

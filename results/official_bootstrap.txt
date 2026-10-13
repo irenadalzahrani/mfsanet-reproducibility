@@ -1,0 +1,5 @@
+Paired bootstrap, 100000 resamples of test videos, generator seed 42; delta = AUC(model_a) - AUC(model_b)
+celebdf  mfsanet_v3 vs specxnet_da: observed delta=-0.0006 | bootstrap mean=-0.0006 95% CI=[-0.0054, +0.0027] favoring mfsanet_v3=42.9% | seed-averaged-score AUC: mfsanet_v3=0.9973 specxnet_da=0.9980 | videos=518 (real=178, fake=340) seeds=[3]
+celebdf  mfsanet_v3 vs defax_da: observed delta=-0.0016 | bootstrap mean=-0.0016 95% CI=[-0.0073, +0.0019] favoring mfsanet_v3=34.0% | seed-averaged-score AUC: mfsanet_v3=0.9973 defax_da=0.9989 | videos=518 (real=178, fake=340) seeds=[3]
+dfdc     mfsanet_v3 vs specxnet_da: observed delta=+0.0282 | bootstrap mean=+0.0282 95% CI=[-0.0032, +0.0598] favoring mfsanet_v3=96.1% | seed-averaged-score AUC: mfsanet_v3=0.8177 specxnet_da=0.7896 | videos=1701 (real=183, fake=1518) seeds=[3]
+dfdc     mfsanet_v3 vs defax_da: observed delta=+0.0046 | bootstrap mean=+0.0046 95% CI=[-0.0192, +0.0288] favoring mfsanet_v3=64.5% | seed-averaged-score AUC: mfsanet_v3=0.8177 defax_da=0.8132 | videos=1701 (real=183, fake=1518) seeds=[3]
