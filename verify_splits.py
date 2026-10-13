@@ -92,3 +92,22 @@ print(f"CelebDF DA subset: {len(cel)} videos, {len(da_ids)} identities; test ide
       f"{len(test_ids & da_ids)} of {len(test_ids)}; identity-tagged test videos sharing >=1 identity with a DA video: "
       f"{shared} of {len(test_v)}")
 print("DA videos that are also test videos:", len(cel & {v for v, r in man.items() if r['split'] == 'test'}))
+
+print("\n=== 6. CelebDF-v2: feasibility of a strictly identity-disjoint evaluation (not run) ===")
+import hashlib
+all_ids = sorted({i for v in man for i in ids_of(v)}, key=int)
+for frac in (0.15, 0.25, 0.35):
+    held = {i for i in all_ids if int(hashlib.sha256(("id" + i).encode()).hexdigest(), 16) % 1000 < int(1000 * frac)}
+    test, train, dropped = collections.Counter(), collections.Counter(), collections.Counter()
+    for v, r in man.items():
+        s = ids_of(v)
+        if not s:
+            dropped[(r["label"], "no identity tag")] += 1
+        elif s <= held:
+            test[r["label"]] += 1
+        elif not (s & held):
+            train[r["label"]] += 1
+        else:
+            dropped[(r["label"], "mixed identities")] += 1
+    print(f"held-out identities={len(held)} of {len(all_ids)} ({frac:.0%}, hash-selected): "
+          f"test real={test['real']} fake={test['fake']}; train real={train['real']} fake={train['fake']}; discarded={dict(dropped)}")
