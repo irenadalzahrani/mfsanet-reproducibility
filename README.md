@@ -4,10 +4,10 @@ Code, split manifests, per-video predictions and result tables for the associate
 Trained model checkpoints are not included.
 
 ## Requirements
-- Python 3.10
-- PyTorch 2.4.0
-- CUDA 12.1
-- timm (for the Xception baseline)
+- Python 3.12.3
+- PyTorch 2.8.0 (CUDA 12.8), torchvision 0.23.0, timm 1.0.30 (Xception baseline), facenet-pytorch 2.6.0 (MTCNN)
+- All experiments ran on a single NVIDIA RTX 4090 (24 GB) in a RunPod pod (template: Runpod Pytorch 2.8.0)
+- Full list of installed packages: `requirements_pod.txt`
 
 ## Structure
 
